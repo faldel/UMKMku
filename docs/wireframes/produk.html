@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Produk Wireframe</title>
+    <style>
+        body { font-family: "Quicksand", sans-serif; }
+        .window {
+            margin: 0 auto !important; width: 1200px; height: 800px; border: 1px solid #000; display: flex; background: #fff; box-sizing: border-box; position: relative;}
+        
+        /* Left Sidebar */
+        .sidebar-left { width: 220px; border-right: 1px solid #000; display: flex; flex-direction: column; padding: 20px; box-sizing: border-box; }
+        .logo { width: 100%; height: 40px; border: 1px solid #000; display: flex; align-items: center; justify-content: center; margin-bottom: 40px; font-weight: bold; }
+        .menu-label { font-size: 10px; color: #666; margin-bottom: 10px; }
+        .menu-item { width: 100%; height: 35px; border: 1px solid #000; display: flex; align-items: center; padding-left: 10px; margin-bottom: 10px; box-sizing: border-box; font-size: 14px; }
+        .menu-item.active { background: #eee; }
+        .spacer { flex: 1; }
+        
+        /* Main Content */
+        .content { flex: 1; display: flex; flex-direction: column; box-sizing: border-box; overflow: hidden; }
+        
+        /* Top Nav */
+        .top-nav { height: 60px; border-bottom: 1px solid #000; display: flex; align-items: center; justify-content: flex-end; padding: 0 20px; }
+        .profile-btn { width: 120px; height: 35px; border: 1px solid #000; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+        
+        .main { padding: 30px; display: flex; flex-direction: column; }
+        
+        .header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .title { font-size: 24px; font-weight: bold; }
+        .subtitle { font-size: 12px; color: #666; }
+        .btn-add { border: 1px solid #000; padding: 10px 20px; font-weight: bold; background: #eee; }
+        
+        .row-4 { display: flex; gap: 15px; margin-bottom: 20px; }
+        .card-4 { flex: 1; height: 80px; border: 1px solid #000; padding: 10px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; }
+        .card-title { font-size: 12px; }
+        .card-value { font-size: 18px; font-weight: bold; }
+        
+        .tabs { display: flex; gap: 20px; border-bottom: 1px solid #ccc; margin-bottom: 20px; }
+        .tab { padding: 10px 0; font-weight: bold; font-size: 14px; }
+        .tab.active { border-bottom: 2px solid #000; }
+        
+        .filters { display: flex; justify-content: space-between; margin-bottom: 20px; }
+        .search-bar { width: 300px; height: 35px; border: 1px solid #000; padding-left: 10px; display: flex; align-items: center; font-size: 12px; color: #666; }
+        .filter-dd { width: 150px; height: 35px; border: 1px solid #000; display: flex; align-items: center; justify-content: space-between; padding: 0 10px; font-size: 12px; }
+        .toggle-view { display: flex; border: 1px solid #000; }
+        .toggle-btn { padding: 5px 15px; font-size: 12px; border-left: 1px solid #000; }
+        .toggle-btn:first-child { border-left: none; }
+        
+        .product-grid { display: flex; gap: 20px; }
+        .prod-card { width: 220px; border: 1px solid #000; padding: 15px; box-sizing: border-box; border-radius: 8px; }
+        .prod-top { display: flex; justify-content: space-between; margin-bottom: 15px; }
+        .prod-icon { width: 30px; height: 30px; border: 1px dashed #000; }
+        .prod-pill { border: 1px solid #000; font-size: 10px; padding: 2px 8px; border-radius: 10px; height: 16px; }
+        .prod-name { font-weight: bold; margin-bottom: 5px; }
+        .prod-cat { font-size: 10px; color: #666; margin-bottom: 15px; }
+        .prod-detail { display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 5px; }
+        .prod-actions { display: flex; gap: 10px; margin-top: 20px; }
+        .prod-btn { flex: 1; border: 1px solid #000; text-align: center; padding: 5px 0; font-size: 12px; }
+        
+        .footer { width: 1200px; border: 1px solid #000; margin-top: 10px; padding: 10px; font-size: 14px; box-sizing: border-box; }
+    
+        
+        /* Document Styles */
+        body { background: #e0e0e0 !important; padding: 40px !important; margin: 0 !important; display: block !important;}
+        .doc-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            font-family: 'Quicksand', sans-serif;
+            text-align: left;
+            box-sizing: border-box;
+        }
+        .doc-header {
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+        .doc-id {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        .doc-box {
+            display: flex;
+            border: 1px solid #000;
+            padding: 20px;
+            gap: 20px;
+        }
+        .doc-left {
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            overflow: hidden;
+            border: 1px solid #000;
+        }
+        .doc-wireframe {
+            padding: 20px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: auto;
+            height: 550px;
+        }
+        .doc-footer {
+            border-top: 1px solid #000;
+            padding: 15px;
+            font-size: 14px;
+        }
+        .doc-right {
+            flex: 1;
+            border: 1px solid #000;
+            padding: 20px;
+            font-size: 14px;
+        }
+        .doc-right ul, .doc-footer ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+        .doc-right li, .doc-footer li {
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        /* Adjusting original window */
+        .window {
+            margin: 0 auto !important;
+            zoom: 0.65;
+            
+            margin: 0 !important;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+        .browser-print {
+            zoom: 0.65;
+            
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="doc-container">
+        <div class="doc-header">PERANCANGAN ANTARMUKA</div>
+        
+        <div class="doc-id">T03 - Data Barang / Produk</div>
+        <div class="doc-box">
+            <div class="doc-left">
+                <div class="doc-wireframe">
+
+                    <div class="window">
+        <!-- Left Sidebar -->
+        <div class="sidebar-left">
+            <div class="logo">LOGO UMKMku</div>
+            <div class="menu-label">MENU UTAMA</div>
+            <div class="menu-item">Dashboard</div>
+            <div class="menu-item active">Produk & Stok</div>
+            <div class="menu-item">Penjualan</div>
+            <div class="menu-item">Laporan</div>
+            <div class="spacer"></div>
+            <div class="menu-label">SISTEM</div>
+            <div class="menu-item">Pengaturan</div>
+            <div class="menu-item">Keluar</div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="content">
+            <div class="top-nav">
+                <div class="profile-btn">[ User ]</div>
+            </div>
+            <div class="main">
+                <div class="header-row">
+                    <div>
+                        <div class="title">Produk & Stok</div>
+                        <div class="subtitle">Kelola katalog produk, harga, batas minimum, dan pantau riwayat mutasi stok.</div>
+                    </div>
+                    <div class="btn-add">+ Tambah Produk</div>
+                </div>
+                
+                <div class="row-4">
+                    <div class="card-4"><div class="card-title">Total SKU Produk</div><div class="card-value">1</div></div>
+                    <div class="card-4"><div class="card-title">Stok Tersedia</div><div class="card-value">1</div></div>
+                    <div class="card-4"><div class="card-title">Stok Menipis</div><div class="card-value">0</div></div>
+                    <div class="card-4"><div class="card-title">Stok Habis</div><div class="card-value">0</div></div>
+                </div>
+                
+                <div class="tabs">
+                    <div class="tab active">Katalog Produk</div>
+                    <div class="tab" style="color: #666; font-weight: normal;">Riwayat Mutasi Stok</div>
+                </div>
+                
+                <div class="filters">
+                    <div style="display: flex; gap: 15px;">
+                        <div class="search-bar">Cari nama produk, SKU...</div>
+                        <div class="filter-dd">Semua <span>v</span></div>
+                    </div>
+                    <div class="toggle-view">
+                        <div class="toggle-btn">Table</div>
+                        <div class="toggle-btn" style="background: #eee;">Card</div>
+                    </div>
+                </div>
+                
+                <div class="product-grid">
+                    <div class="prod-card">
+                        <div class="prod-top">
+                            <div class="prod-icon"></div>
+                            <div class="prod-pill">Tersedia</div>
+                        </div>
+                        <div class="prod-name">Latte</div>
+                        <div class="prod-cat"><span style="border:1px solid #ccc; padding:2px 4px; margin-right:5px;">KAA-1</span> [ Kategori ]</div>
+                        <div class="prod-detail"><span>Harga</span><b>[ Harga ]</b></div>
+                        <div class="prod-detail"><span>Stok</span><b>30 gls</b></div>
+                        <div class="prod-actions">
+                            <div class="prod-btn">Edit</div>
+                            <div class="prod-btn">Hapus</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                
+                </div>
+                <div class="doc-footer">
+                    <ul>
+                        <li>Font: Quicksand (10, 12, 14, 16, 24)</li>
+                        <li>Ukuran Layar: 1200 x 800 px (di-scale 75% di dokumen)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="doc-right">
+                <div style="font-weight: bold; margin-bottom: 15px;">Instruksi Aksi:</div>
+                <ul>
+                    <li>Klik tombol 'Tambah Produk Baru' untuk memunculkan form modal (T03.2).</li><li>Pilih tab Kategori untuk filter barang.</li><li>Klik ikon Edit atau Hapus pada tabel untuk mengelola data produk.</li><li>Klik menu 'Dashboard' untuk kembali ke T02.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

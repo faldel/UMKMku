@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pengaturan Wireframe</title>
+    <style>
+        body { font-family: "Quicksand", sans-serif; }
+        .window {
+            margin: 0 auto !important; width: 1200px; height: 800px; border: 1px solid #000; display: flex; background: #fff; box-sizing: border-box; position: relative;}
+        
+        /* Left Sidebar */
+        .sidebar-left { width: 220px; border-right: 1px solid #000; display: flex; flex-direction: column; padding: 20px; box-sizing: border-box; }
+        .logo { width: 100%; height: 40px; border: 1px solid #000; display: flex; align-items: center; justify-content: center; margin-bottom: 40px; font-weight: bold; }
+        .menu-label { font-size: 10px; color: #666; margin-bottom: 10px; }
+        .menu-item { width: 100%; height: 35px; border: 1px solid #000; display: flex; align-items: center; padding-left: 10px; margin-bottom: 10px; box-sizing: border-box; font-size: 14px; }
+        .menu-item.active { background: #eee; }
+        .spacer { flex: 1; }
+        
+        /* Main Content */
+        .content { flex: 1; display: flex; flex-direction: column; box-sizing: border-box; overflow: hidden; position: relative;}
+        
+        /* Top Nav */
+        .top-nav { height: 60px; border-bottom: 1px solid #000; display: flex; align-items: center; justify-content: flex-end; padding: 0 20px; }
+        .profile-btn { width: 120px; height: 35px; border: 1px solid #000; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+        
+        .main { padding: 30px; display: flex; flex-direction: column; }
+        
+        .header-row { margin-bottom: 30px; }
+        .title { font-size: 24px; font-weight: bold; margin-bottom: 5px;}
+        .subtitle { font-size: 12px; color: #666; }
+        
+        .settings-grid { display: flex; gap: 30px;}
+        
+        /* Left Card - Logo/Inisial */
+        .card-left { width: 300px; border: 1px solid #000; border-radius: 12px; padding: 30px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center;}
+        .avatar-lg { width: 100px; height: 100px; border: 1px dashed #000; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 32px; font-weight: bold; margin-bottom: 20px; background: #eee;}
+        .user-name { font-weight: bold; font-size: 18px; margin-bottom: 5px;}
+        .user-email { font-size: 12px; color: #666; margin-bottom: 30px;}
+        .input-group { width: 100%; display: flex; flex-direction: column; margin-bottom: 15px;}
+        .input-group label { font-size: 10px; font-weight: bold; color: #666; margin-bottom: 5px;}
+        .input-group input { height: 40px; border: 1px solid #000; border-radius: 8px; text-align: center; font-weight: bold;}
+        
+        /* Right Card - Form Profil */
+        .card-right { flex: 1; border: 1px solid #000; border-radius: 12px; padding: 30px; box-sizing: border-box; display: flex; flex-direction: column;}
+        .card-title { font-size: 16px; font-weight: bold; margin-bottom: 5px;}
+        .card-subtitle { font-size: 12px; color: #666; margin-bottom: 30px;}
+        
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;}
+        .form-group { display: flex; flex-direction: column; }
+        .form-group label { font-size: 12px; font-weight: bold; margin-bottom: 8px; }
+        .form-group input { height: 40px; border: 1px solid #ccc; border-radius: 8px; padding-left: 10px; color: #000; }
+        .form-group textarea { height: 80px; border: 1px solid #ccc; border-radius: 8px; padding: 10px; color: #000; resize: none;}
+        
+        .card-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 30px; border-top: 1px dashed #ccc; padding-top: 20px;}
+        .btn-delete { color: #000; font-weight: bold; font-size: 14px; text-decoration: underline;}
+        .btn-actions { display: flex; gap: 20px; align-items: center;}
+        .btn-cancel { font-weight: bold; font-size: 14px;}
+        .btn-save { padding: 10px 20px; border: 1px solid #000; background: #eee; border-radius: 8px; font-weight: bold;}
+        
+        .footer { width: 1200px; border: 1px solid #000; margin-top: 10px; padding: 10px; font-size: 14px; box-sizing: border-box; }
+    
+        
+        /* Document Styles */
+        body { background: #e0e0e0 !important; padding: 40px !important; margin: 0 !important; display: block !important;}
+        .doc-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            font-family: 'Quicksand', sans-serif;
+            text-align: left;
+            box-sizing: border-box;
+        }
+        .doc-header {
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+        .doc-id {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        .doc-box {
+            display: flex;
+            border: 1px solid #000;
+            padding: 20px;
+            gap: 20px;
+        }
+        .doc-left {
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            overflow: hidden;
+            border: 1px solid #000;
+        }
+        .doc-wireframe {
+            padding: 20px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: auto;
+            height: 550px;
+        }
+        .doc-footer {
+            border-top: 1px solid #000;
+            padding: 15px;
+            font-size: 14px;
+        }
+        .doc-right {
+            flex: 1;
+            border: 1px solid #000;
+            padding: 20px;
+            font-size: 14px;
+        }
+        .doc-right ul, .doc-footer ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+        .doc-right li, .doc-footer li {
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        /* Adjusting original window */
+        .window {
+            margin: 0 auto !important;
+            zoom: 0.65;
+            
+            margin: 0 !important;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+        .browser-print {
+            zoom: 0.65;
+            
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="doc-container">
+        <div class="doc-header">PERANCANGAN ANTARMUKA</div>
+        
+        <div class="doc-id">T06 - Pengaturan Usaha</div>
+        <div class="doc-box">
+            <div class="doc-left">
+                <div class="doc-wireframe">
+
+                    <div class="window">
+        <!-- Left Sidebar -->
+        <div class="sidebar-left">
+            <div class="logo">LOGO UMKMku</div>
+            <div class="menu-label">MENU UTAMA</div>
+            <div class="menu-item">Dashboard</div>
+            <div class="menu-item">Produk & Stok</div>
+            <div class="menu-item">Penjualan</div>
+            <div class="menu-item">Laporan</div>
+            <div class="spacer"></div>
+            <div class="menu-label">SISTEM</div>
+            <div class="menu-item active">Pengaturan</div>
+            <div class="menu-item">Keluar</div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="content">
+            <div class="top-nav">
+                <div class="profile-btn">[ User ]</div>
+            </div>
+            <div class="main">
+                <div class="header-row">
+                    <div class="title">Pengaturan Usaha</div>
+                    <div class="subtitle">Kelola profil toko, nomor kontak, dan alamat usaha Anda.</div>
+                </div>
+                
+                <div class="settings-grid">
+                    <div class="card-left">
+                        <div class="avatar-lg">[ Img ]</div>
+                        <div class="user-name">[ Nama User ]</div>
+                        <div class="user-email">[ Email User ]</div>
+                        
+                        <div class="input-group">
+                            <label>INISIAL LOGO (MAKS 2 HURUF)</label>
+                            <input type="text" value="[ Img ]">
+                        </div>
+                    </div>
+                    
+                    <div class="card-right">
+                        <div class="card-title">Informasi Profil</div>
+                        <div class="card-subtitle">Ubah data identitas usaha Anda di bawah ini.</div>
+                        
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Nama Toko / Usaha</label>
+                                <input type="text" value="[ Nama User ]">
+                            </div>
+                            <div class="form-group">
+                                <label>Nama Pemilik</label>
+                                <input type="text" value="[ Nama User ]">
+                            </div>
+                            <div class="form-group">
+                                <label>No. WhatsApp / Telepon</label>
+                                <input type="text" value="-">
+                            </div>
+                            <div class="form-group">
+                                <label>Alamat Email</label>
+                                <input type="text" value="[ Email User ]">
+                            </div>
+                        </div>
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <label>Alamat Lengkap Usaha</label>
+                            <textarea>-</textarea>
+                        </div>
+                        
+                        <div class="card-footer">
+                            <div class="btn-delete">X Hapus Akun</div>
+                            <div class="btn-actions">
+                                <div class="btn-cancel">Batal</div>
+                                <div class="btn-save">Simpan Perubahan</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+                
+                </div>
+                <div class="doc-footer">
+                    <ul>
+                        <li>Font: Quicksand (10, 12, 14, 16, 24)</li>
+                        <li>Ukuran Layar: 1200 x 800 px (di-scale 75% di dokumen)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="doc-right">
+                <div style="font-weight: bold; margin-bottom: 15px;">Instruksi Aksi:</div>
+                <ul>
+                    <li>Ketik inisial nama toko (maks. 2 huruf) untuk mengganti logo.</li><li>Ubah detail informasi profil usaha pada formulir.</li><li>Klik tombol 'Simpan Perubahan' untuk menyimpan data.</li><li>Klik tombol 'Hapus Akun' untuk memunculkan modal peringatan (T06.2).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

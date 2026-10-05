@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard Wireframe</title>
+    <style>
+        body { font-family: "Quicksand", sans-serif; }
+        .window {
+            margin: 0 auto !important; width: 1200px; height: 800px; border: 1px solid #000; display: flex; background: #fff; box-sizing: border-box; }
+        
+        /* Left Sidebar */
+        .sidebar-left { width: 220px; border-right: 1px solid #000; display: flex; flex-direction: column; padding: 20px; box-sizing: border-box; }
+        .logo { width: 100%; height: 40px; border: 1px solid #000; display: flex; align-items: center; justify-content: center; margin-bottom: 40px; font-weight: bold; }
+        .menu-label { font-size: 10px; color: #666; margin-bottom: 10px; }
+        .menu-item { width: 100%; height: 35px; border: 1px solid #000; display: flex; align-items: center; padding-left: 10px; margin-bottom: 10px; box-sizing: border-box; font-size: 14px; }
+        .menu-item.active { background: #eee; }
+        .spacer { flex: 1; }
+        
+        /* Main Content */
+        .content { flex: 1; display: flex; flex-direction: column; padding: 20px; box-sizing: border-box; overflow: hidden; }
+        .banner { width: 100%; height: 100px; border: 1px solid #000; display: flex; flex-direction: column; justify-content: center; padding: 20px; box-sizing: border-box; margin-bottom: 20px; }
+        .banner-title { font-size: 20px; font-weight: bold; margin-bottom: 10px; }
+        .banner-sub { font-size: 12px; }
+        
+        .section-title { font-size: 14px; font-weight: bold; margin-bottom: 10px; display: flex; justify-content: space-between; }
+        
+        .row-4 { display: flex; gap: 15px; margin-bottom: 20px; }
+        .card-4 { flex: 1; height: 80px; border: 1px solid #000; padding: 10px; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; }
+        .card-title { font-size: 12px; }
+        .card-value { font-size: 18px; font-weight: bold; }
+        
+        .chart-box { width: 100%; height: 250px; border: 1px solid #000; padding: 15px; box-sizing: border-box; margin-bottom: 20px; display: flex; flex-direction: column; }
+        .chart-cards { display: flex; gap: 15px; margin-bottom: 15px; }
+        .card-3 { flex: 1; height: 60px; border: 1px solid #000; padding: 10px; box-sizing: border-box; }
+        .chart-area { flex: 1; border: 1px dashed #ccc; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 10px; font-size: 12px; color: #999; }
+        
+        .bottom-row { display: flex; gap: 20px; flex: 1; }
+        .table-box { flex: 2; border: 1px solid #000; padding: 10px; box-sizing: border-box; display: flex; flex-direction: column; }
+        .stock-box { flex: 1; border: 1px solid #000; padding: 10px; box-sizing: border-box; display: flex; flex-direction: column; }
+        .table-header { display: flex; border-bottom: 1px solid #000; padding-bottom: 5px; margin-bottom: 10px; font-size: 10px; font-weight: bold; }
+        .table-row { display: flex; border-bottom: 1px dashed #ccc; padding-bottom: 5px; margin-bottom: 5px; font-size: 12px; }
+        .col { flex: 1; }
+        
+        .alert-box { width: 100%; height: 50px; border: 1px solid #000; margin-bottom: 10px; display: flex; align-items: center; padding: 10px; box-sizing: border-box; font-size: 12px; }
+        .stock-item { border-bottom: 1px dashed #ccc; padding-bottom: 5px; margin-bottom: 5px; font-size: 12px; display: flex; justify-content: space-between;}
+        
+        /* Right Sidebar */
+        .sidebar-right { width: 280px; border-left: 1px solid #000; display: flex; flex-direction: column; box-sizing: border-box; }
+        .top-nav { height: 60px; border-bottom: 1px solid #000; display: flex; align-items: center; justify-content: flex-end; padding: 0 20px; }
+        .profile-btn { width: 120px; height: 35px; border: 1px solid #000; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+        .activity-feed { padding: 20px; flex: 1; }
+        .activity-item { display: flex; gap: 10px; margin-bottom: 20px; }
+        .activity-icon { width: 30px; height: 30px; border: 1px solid #000; border-radius: 50%; }
+        .activity-text { flex: 1; font-size: 12px; }
+        .activity-time { font-size: 10px; color: #666; }
+        
+        .footer { width: 1200px; border: 1px solid #000; margin-top: 10px; padding: 10px; font-size: 14px; box-sizing: border-box; }
+    
+        
+        /* Document Styles */
+        body { background: #e0e0e0 !important; padding: 40px !important; margin: 0 !important; display: block !important;}
+        .doc-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            font-family: 'Quicksand', sans-serif;
+            text-align: left;
+            box-sizing: border-box;
+        }
+        .doc-header {
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+        .doc-id {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        .doc-box {
+            display: flex;
+            border: 1px solid #000;
+            padding: 20px;
+            gap: 20px;
+        }
+        .doc-left {
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            overflow: hidden;
+            border: 1px solid #000;
+        }
+        .doc-wireframe {
+            padding: 20px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: auto;
+            height: 550px;
+        }
+        .doc-footer {
+            border-top: 1px solid #000;
+            padding: 15px;
+            font-size: 14px;
+        }
+        .doc-right {
+            flex: 1;
+            border: 1px solid #000;
+            padding: 20px;
+            font-size: 14px;
+        }
+        .doc-right ul, .doc-footer ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+        .doc-right li, .doc-footer li {
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        /* Adjusting original window */
+        .window {
+            margin: 0 auto !important;
+            zoom: 0.65;
+            
+            margin: 0 !important;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+        .browser-print {
+            zoom: 0.65;
+            
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="doc-container">
+        <div class="doc-header">PERANCANGAN ANTARMUKA</div>
+        
+        <div class="doc-id">T02 - Halaman Utama (Dashboard)</div>
+        <div class="doc-box">
+            <div class="doc-left">
+                <div class="doc-wireframe">
+
+                    <div class="window">
+        <!-- Left Sidebar -->
+        <div class="sidebar-left">
+            <div class="logo">LOGO UMKMku</div>
+            <div class="menu-label">MENU UTAMA</div>
+            <div class="menu-item active">Dashboard</div>
+            <div class="menu-item">Produk & Stok</div>
+            <div class="menu-item">Penjualan</div>
+            <div class="menu-item">Laporan</div>
+            <div class="spacer"></div>
+            <div class="menu-label">SISTEM</div>
+            <div class="menu-item">Pengaturan</div>`n            <div class="menu-item">Keluar</div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="content">
+            <div class="banner">
+                <div class="banner-title">Selamat Datang di Dashboard UMKMku</div>
+                <div class="banner-sub">Pantau ringkasan penjualan harian, kelola katalog produk...</div>
+            </div>
+            
+            <div class="section-title">Ringkasan Performa <span style="font-weight:normal; border:1px solid #000; padding:2px 5px; font-size:10px;">Hari Ini | 7 Hari | Bulan</span></div>
+            <div class="row-4">
+                <div class="card-4"><div class="card-title">Total Penjualan</div><div class="card-value">[ Nominal ]</div></div>
+                <div class="card-4"><div class="card-title">Laba Bersih</div><div class="card-value">[ Nominal ]</div></div>
+                <div class="card-4"><div class="card-title">Total Produk di Toko</div><div class="card-value">1 SKU</div></div>
+                <div class="card-4"><div class="card-title">Stok Menipis</div><div class="card-value">1 Produk</div></div>
+            </div>
+            
+            <div class="section-title">Arus Kas & Analitik Keuangan <span style="font-weight:normal; border:1px solid #000; padding:2px 5px; font-size:10px;">7 Hari Terakhir</span></div>
+            <div class="chart-box">
+                <div class="chart-cards">
+                    <div class="card-3"><div class="card-title">Total Pemasukan</div><div class="card-value">[ Nominal ]</div></div>
+                    <div class="card-3"><div class="card-title">Total Pengeluaran</div><div class="card-value">[ Nominal ]</div></div>
+                    <div class="card-3"><div class="card-title">Surplus Laba Bersih</div><div class="card-value">[ Nominal ]</div></div>
+                </div>
+                <div class="chart-area">[ Area Grafik Garis ]</div>
+            </div>
+            
+            <div class="bottom-row">
+                <div class="table-box">
+                    <div class="section-title">Transaksi Terbaru</div>
+                    <div class="table-header">
+                        <div class="col">WAKTU</div><div class="col">ID TRANSAKSI</div><div class="col">METODE</div><div class="col">TOTAL BAYAR</div><div class="col">STATUS</div>
+                    </div>
+                    <div class="table-row">
+                        <div class="col">[ Waktu ]</div><div class="col">[ No. TRX ]</div><div class="col">[ Metode ]</div><div class="col">[ Nominal ]</div><div class="col">[[ Status ]]</div>
+                    </div>
+                </div>
+                <div class="stock-box">
+                    <div class="section-title">Perhatian Stok</div>
+                    <div class="alert-box">Peringatan Stok Menipis!</div>
+                    <div class="stock-item">
+                        <div><b>Latte</b><br><span style="font-size:10px;">Sisa: 0 gls (Min: 10)</span></div>
+                        <div style="border:1px solid #000; padding:2px 5px; font-size:10px; height: 15px;">Habis</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Sidebar -->
+        <div class="sidebar-right">
+            <div class="top-nav">
+                <div class="profile-btn">[ User ]</div>
+            </div>
+            <div class="activity-feed">
+                <div class="section-title">Aktivitas Terkini</div>
+                <div class="activity-item">
+                    <div class="activity-icon"></div>
+                    <div class="activity-text"><b>[ Aktivitas ]</b><br>[ Deskripsi Aktivitas ]<br>+ [ Nominal ]</div>
+                    <div class="activity-time">[ Waktu ]</div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-icon"></div>
+                    <div class="activity-text"><b>Stok Habis!</b><br>1 produk telah habis.<br>Stok Kosong!</div>
+                    <div class="activity-time">[ Waktu ]</div>
+                </div>
+            </div>
+        </div>
+    </div>
+                
+                </div>
+                <div class="doc-footer">
+                    <ul>
+                        <li>Font: Quicksand (10, 12, 14, 16, 24)</li>
+                        <li>Ukuran Layar: 1200 x 800 px (di-scale 75% di dokumen)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="doc-right">
+                <div style="font-weight: bold; margin-bottom: 15px;">Instruksi Aksi:</div>
+                <ul>
+                    <li>Klik menu 'Produk & Stok' untuk menuju T03.</li><li>Klik menu 'Penjualan' untuk menuju T04.</li><li>Klik menu 'Laporan' untuk menuju T05.</li><li>Klik menu 'Pengaturan' untuk menuju T06.</li><li>Klik menu 'Keluar' untuk logout kembali ke T01.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+

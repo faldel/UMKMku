@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hapus Akun Wireframe</title>
+    <style>
+        body { font-family: "Quicksand", sans-serif; }
+        .window {
+            margin: 0 auto !important; width: 1200px; height: 800px; border: 1px solid #000; display: flex; background: #fff; box-sizing: border-box; position: relative;}
+        
+        /* Left Sidebar & Content blur effect */
+        .sidebar-left { width: 220px; border-right: 1px solid #000; display: flex; flex-direction: column; padding: 20px; box-sizing: border-box; opacity: 0.3; }
+        .content { flex: 1; display: flex; flex-direction: column; box-sizing: border-box; opacity: 0.3; }
+        .top-nav { height: 60px; border-bottom: 1px solid #000; }
+        .main { padding: 30px; }
+        
+        /* Overlay and Modal */
+        .overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.1); display: flex; justify-content: center; align-items: center; z-index: 10;}
+        .modal { width: 450px; background: #fff; border: 1px solid #000; border-radius: 12px; padding: 40px; box-sizing: border-box; display: flex; flex-direction: column; align-items: center; text-align: center;}
+        
+        .modal-icon { width: 50px; height: 50px; border: 1px dashed #000; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 24px; font-weight: bold; margin-bottom: 20px;}
+        .modal-title { font-size: 20px; font-weight: bold; margin-bottom: 15px; }
+        .modal-subtitle { font-size: 14px; color: #666; margin-bottom: 30px; line-height: 1.5;}
+        
+        .modal-actions { display: flex; gap: 15px; width: 100%;}
+        .btn-cancel { flex: 1; height: 45px; border: 1px solid #000; border-radius: 8px; display: flex; justify-content: center; align-items: center; font-weight: bold; }
+        .btn-delete { flex: 1; height: 45px; border: 2px solid #000; background: #eee; border-radius: 8px; display: flex; justify-content: center; align-items: center; font-weight: bold; }
+        
+        .footer { width: 1200px; border: 1px solid #000; margin-top: 10px; padding: 10px; font-size: 14px; box-sizing: border-box; }
+    
+        
+        /* Document Styles */
+        body { background: #e0e0e0 !important; padding: 40px !important; margin: 0 !important; display: block !important;}
+        .doc-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            font-family: 'Quicksand', sans-serif;
+            text-align: left;
+            box-sizing: border-box;
+        }
+        .doc-header {
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+        .doc-id {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        .doc-box {
+            display: flex;
+            border: 1px solid #000;
+            padding: 20px;
+            gap: 20px;
+        }
+        .doc-left {
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            overflow: hidden;
+            border: 1px solid #000;
+        }
+        .doc-wireframe {
+            padding: 20px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: auto;
+            height: 550px;
+        }
+        .doc-footer {
+            border-top: 1px solid #000;
+            padding: 15px;
+            font-size: 14px;
+        }
+        .doc-right {
+            flex: 1;
+            border: 1px solid #000;
+            padding: 20px;
+            font-size: 14px;
+        }
+        .doc-right ul, .doc-footer ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+        .doc-right li, .doc-footer li {
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        /* Adjusting original window */
+        .window {
+            margin: 0 auto !important;
+            zoom: 0.65;
+            
+            margin: 0 !important;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+        .browser-print {
+            zoom: 0.65;
+            
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="doc-container">
+        <div class="doc-header">PERANCANGAN ANTARMUKA</div>
+        
+        <div class="doc-id">T06.2 - Modal Hapus Akun Permanen</div>
+        <div class="doc-box">
+            <div class="doc-left">
+                <div class="doc-wireframe">
+
+                    <div class="window">
+        <!-- Faded Background -->
+        <div class="sidebar-left">
+            <div style="font-weight: bold; margin-bottom: 40px;">LOGO UMKMku</div>
+            <div>MENU UTAMA</div>
+        </div>
+        <div class="content">
+            <div class="top-nav"></div>
+            <div class="main">
+                <div style="font-size: 24px; font-weight: bold;">Pengaturan Usaha</div>
+            </div>
+        </div>
+        
+        <!-- Modal Overlay -->
+        <div class="overlay">
+            <div class="modal">
+                <div class="modal-icon">!</div>
+                <div class="modal-title">Hapus Akun Permanen?</div>
+                <div class="modal-subtitle">Apakah Anda yakin ingin menghapus akun secara permanen? Semua data usaha, produk, dan riwayat transaksi akan dihapus dari sistem dan <b>tidak dapat dikembalikan!</b></div>
+                
+                <div class="modal-actions">
+                    <div class="btn-cancel">Batal</div>
+                    <div class="btn-delete">Ya, Hapus Akun</div>
+                </div>
+            </div>
+        </div>
+    </div>
+                
+                </div>
+                <div class="doc-footer">
+                    <ul>
+                        <li>Font: Quicksand (10, 12, 14, 16, 24)</li>
+                        <li>Ukuran Layar: 1200 x 800 px (di-scale 75% di dokumen)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="doc-right">
+                <div style="font-weight: bold; margin-bottom: 15px;">Instruksi Aksi:</div>
+                <ul>
+                    <li>Baca teks peringatan berwarna merah.</li><li>Klik tombol 'Ya, Hapus Akun' untuk menghapus akun secara permanen (sistem akan logout ke T01).</li><li>Klik tombol 'Batal' untuk kembali ke Pengaturan (T06).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

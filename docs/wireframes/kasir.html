@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kasir Wireframe</title>
+    <style>
+        body { font-family: "Quicksand", sans-serif; }
+        .window {
+            margin: 0 auto !important; width: 1200px; height: 800px; border: 1px solid #000; display: flex; background: #fff; box-sizing: border-box; position: relative;}
+        
+        /* Left Sidebar */
+        .sidebar-left { width: 220px; border-right: 1px solid #000; display: flex; flex-direction: column; padding: 20px; box-sizing: border-box; }
+        .logo { width: 100%; height: 40px; border: 1px solid #000; display: flex; align-items: center; justify-content: center; margin-bottom: 40px; font-weight: bold; }
+        .menu-label { font-size: 10px; color: #666; margin-bottom: 10px; }
+        .menu-item { width: 100%; height: 35px; border: 1px solid #000; display: flex; align-items: center; padding-left: 10px; margin-bottom: 10px; box-sizing: border-box; font-size: 14px; }
+        .menu-item.active { background: #eee; }
+        .spacer { flex: 1; }
+        
+        /* Main Content */
+        .content { flex: 1; display: flex; flex-direction: column; box-sizing: border-box; overflow: hidden; position: relative;}
+        
+        /* Top Nav */
+        .top-nav { height: 60px; border-bottom: 1px solid #000; display: flex; align-items: center; justify-content: flex-end; padding: 0 20px; }
+        .profile-btn { width: 120px; height: 35px; border: 1px solid #000; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+        
+        .main { padding: 30px; display: flex; flex-direction: column; }
+        
+        .header-row { margin-bottom: 20px; }
+        .title { font-size: 24px; font-weight: bold; }
+        .subtitle { font-size: 12px; color: #666; }
+        
+        .search-bar { width: 60%; height: 40px; border: 1px solid #000; padding-left: 20px; display: flex; align-items: center; font-size: 14px; color: #666; margin-bottom: 20px; border-radius: 20px;}
+        
+        .product-grid { display: flex; gap: 20px; width: 60%;}
+        .prod-card { width: 200px; border: 1px solid #000; padding: 15px; box-sizing: border-box; border-radius: 8px; position: relative;}
+        .prod-icon { width: 30px; height: 30px; border: 1px dashed #000; border-radius: 50%; margin-bottom: 15px; }
+        .prod-name { font-weight: bold; font-size: 14px; margin-bottom: 5px; }
+        .prod-price { font-weight: bold; font-size: 16px; margin-bottom: 5px; }
+        .prod-stock { font-size: 10px; color: #666; }
+        .prod-badge { position: absolute; top: -10px; right: -10px; background: #fff; border: 1px solid #000; border-radius: 50%; width: 20px; height: 20px; display: flex; justify-content: center; align-items: center; font-size: 10px; font-weight: bold;}
+        
+        /* Floating Cart */
+        .cart-box { position: absolute; right: 30px; top: 90px; width: 320px; height: 680px; border: 1px solid #000; border-radius: 12px; display: flex; flex-direction: column; padding: 20px; box-sizing: border-box; background: #fff;}
+        .cart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; border-bottom: 1px solid #ccc; padding-bottom: 10px;}
+        .cart-title { font-weight: bold; font-size: 18px; display: flex; align-items: center; gap: 10px;}
+        .cart-count { border: 1px solid #000; border-radius: 50%; width: 20px; height: 20px; display: flex; justify-content: center; align-items: center; font-size: 12px;}
+        .cart-clear { font-size: 12px; color: #666; display: flex; align-items: center; gap: 5px;}
+        
+        .cart-items { flex: 1; }
+        .cart-item { display: flex; align-items: center; gap: 10px; border: 1px solid #ccc; border-radius: 8px; padding: 10px; margin-bottom: 10px;}
+        .item-icon { width: 30px; height: 30px; border: 1px dashed #000; border-radius: 5px;}
+        .item-info { flex: 1; }
+        .item-name { font-weight: bold; font-size: 12px; margin-bottom: 3px;}
+        .item-price { font-size: 10px; color: #666; }
+        .item-qty { display: flex; align-items: center; gap: 5px; border: 1px solid #ccc; border-radius: 15px; padding: 2px 5px; }
+        .qty-btn { width: 15px; height: 15px; border-radius: 50%; border: 1px solid #000; display: flex; justify-content: center; align-items: center; font-size: 10px;}
+        .item-total { font-weight: bold; font-size: 12px; text-align: right; display: flex; flex-direction: column; align-items: flex-end;}
+        
+        .cart-footer { border-top: 1px dashed #000; padding-top: 15px; }
+        .cart-summary { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 15px;}
+        .summary-label { font-size: 12px; color: #666; }
+        .summary-total { font-weight: bold; font-size: 20px; }
+        .btn-checkout { width: 100%; height: 50px; border: 1px solid #000; border-radius: 8px; background: #eee; display: flex; justify-content: center; align-items: center; font-weight: bold;}
+        
+        .footer { width: 1200px; border: 1px solid #000; margin-top: 10px; padding: 10px; font-size: 14px; box-sizing: border-box; }
+    
+        
+        /* Document Styles */
+        body { background: #e0e0e0 !important; padding: 40px !important; margin: 0 !important; display: block !important;}
+        .doc-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            font-family: 'Quicksand', sans-serif;
+            text-align: left;
+            box-sizing: border-box;
+        }
+        .doc-header {
+            font-weight: bold;
+            font-size: 20px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+        .doc-id {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        .doc-box {
+            display: flex;
+            border: 1px solid #000;
+            padding: 20px;
+            gap: 20px;
+        }
+        .doc-left {
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            overflow: hidden;
+            border: 1px solid #000;
+        }
+        .doc-wireframe {
+            padding: 20px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: auto;
+            height: 550px;
+        }
+        .doc-footer {
+            border-top: 1px solid #000;
+            padding: 15px;
+            font-size: 14px;
+        }
+        .doc-right {
+            flex: 1;
+            border: 1px solid #000;
+            padding: 20px;
+            font-size: 14px;
+        }
+        .doc-right ul, .doc-footer ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+        .doc-right li, .doc-footer li {
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        /* Adjusting original window */
+        .window {
+            margin: 0 auto !important;
+            zoom: 0.65;
+            
+            margin: 0 !important;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+        .browser-print {
+            zoom: 0.65;
+            
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        }
+
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="doc-container">
+        <div class="doc-header">PERANCANGAN ANTARMUKA</div>
+        
+        <div class="doc-id">T04 - Penjualan / Kasir (POS)</div>
+        <div class="doc-box">
+            <div class="doc-left">
+                <div class="doc-wireframe">
+
+                    <div class="window">
+        <!-- Left Sidebar -->
+        <div class="sidebar-left">
+            <div class="logo">LOGO UMKMku</div>
+            <div class="menu-label">MENU UTAMA</div>
+            <div class="menu-item">Dashboard</div>
+            <div class="menu-item">Produk & Stok</div>
+            <div class="menu-item active">Penjualan</div>
+            <div class="menu-item">Laporan</div>
+            <div class="spacer"></div>
+            <div class="menu-label">SISTEM</div>
+            <div class="menu-item">Pengaturan</div>`n            <div class="menu-item">Keluar</div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="content">
+            <div class="top-nav">
+                <div class="profile-btn">[ User ]</div>
+            </div>
+            <div class="main">
+                <div class="header-row">
+                    <div class="title">Penjualan</div>
+                    <div class="subtitle">Pilih produk, isi keranjang, lalu simpan penjualan.</div>
+                </div>
+                
+                <div class="search-bar">Cari produk berdasarkan nama atau SKU...</div>
+                
+                <div class="product-grid">
+                    <div class="prod-card">
+                        <div class="prod-icon"></div>
+                        <div class="prod-name">Latte</div>
+                        <div class="prod-price">[ Harga ]</div>
+                        <div class="prod-stock">Stok: 30 gls</div>
+                        <div class="prod-badge">5</div>
+                    </div>
+                </div>
+                
+                <!-- Floating Cart -->
+                <div class="cart-box">
+                    <div class="cart-header">
+                        <div class="cart-title">Keranjang <div class="cart-count">1</div></div>
+                        <div class="cart-clear">X Kosongkan</div>
+                    </div>
+                    
+                    <div class="cart-items">
+                        <div class="cart-item">
+                            <div class="item-icon"></div>
+                            <div class="item-info">
+                                <div class="item-name">Latte</div>
+                                <div class="item-price">[ Harga ]</div>
+                            </div>
+                            <div class="item-qty">
+                                <div class="qty-btn">-</div>
+                                <div style="font-size:12px; font-weight:bold;">5</div>
+                                <div class="qty-btn">+</div>
+                            </div>
+                            <div class="item-total">
+                                [ Nominal ]
+                                <div style="font-size:10px; color:#666; text-decoration:underline;">Hapus</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="cart-footer">
+                        <div class="cart-summary">
+                            <div class="summary-label">[ Qty ] item</div>
+                            <div style="text-align: right;">
+                                <div class="summary-label">Total Pembayaran</div>
+                                <div class="summary-total">[ Nominal ]</div>
+                            </div>
+                        </div>
+                        <div class="btn-checkout">[ Status ]kan Penjualan - [ Nominal ]</div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+                
+                </div>
+                <div class="doc-footer">
+                    <ul>
+                        <li>Font: Quicksand (10, 12, 14, 16, 24)</li>
+                        <li>Ukuran Layar: 1200 x 800 px (di-scale 75% di dokumen)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="doc-right">
+                <div style="font-weight: bold; margin-bottom: 15px;">Instruksi Aksi:</div>
+                <ul>
+                    <li>Klik kartu produk di sisi kiri untuk menambah barang ke keranjang.</li><li>Atur kuantitas (Qty) barang pesanan pada keranjang di sisi kanan.</li><li>Klik tombol 'Selesaikan Pesanan' untuk memunculkan layar konfirmasi (T04.2).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
